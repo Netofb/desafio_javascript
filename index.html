@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Divisíveis por 3 e 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: rgb(124, 124, 124);
+            color: black;
+        }
+        input{
+            border-radius: 5px;
+            padding: 10px 10px;
+            border: none;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield; 
+            -webkit-appearance: none;
+            appearance: none;
+            overflow: hidden;
+        }
+        button{
+            background-color: rgb(255, 255, 255);
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        p{
+            color: rgb(0, 0, 0);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resultado dos Números Divisíveis por 3 e 5</h1>
+
+    <label for="valorInicial">Insira o valor inicial:</label>
+    <input type="number" id="valorInicial" placeholder="Digite um número">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function numerodivisiveis(number) {
+            let soma = 0;
+            for (let i = 1; i < number; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    soma += i;
+                }
+            }
+            return soma;
+        }
+
+        function calcular() {
+            // Obtém o valor inicial do usuário
+            let valorInicial = parseInt(document.getElementById("valorInicial").value);
+
+            // Verifica se o input é um número válido
+            if (isNaN(valorInicial)) {
+                alert("Por favor, insira um número válido.");
+                return;
+            }
+
+            // Chama a função e atualiza o conteúdo da página
+            document.getElementById("resultado").innerText = "Resultado: " + numerodivisiveis(valorInicial);
+        }
+    </script>
+
+</body>
+</html>
